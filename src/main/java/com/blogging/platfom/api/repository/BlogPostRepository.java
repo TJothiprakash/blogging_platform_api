@@ -1,0 +1,15 @@
+package com.blogging.platfom.api.repository;
+
+
+
+import com.blogging.platfom.api.entity.BlogPost;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface BlogPostRepository extends JpaRepository<BlogPost, Long> {
+    List<BlogPost> findByTitleContainingOrContentContainingOrCategoryContaining(String title, String content, String category);
+}
+
